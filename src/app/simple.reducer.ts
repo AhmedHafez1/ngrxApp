@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-export function simpleReducer(state: string = 'Hello World', action: Action) {
+export function simpleReducer(state: string = 'Hello World', action: Action) : string {
 
   switch (action.type) {
     case 'ARABIC':
@@ -8,6 +8,6 @@ export function simpleReducer(state: string = 'Hello World', action: Action) {
     case 'SPANISH':
       return 'Hola Mundo';
     default:
-      return 'Hello World';
+      return state;
   }
 }

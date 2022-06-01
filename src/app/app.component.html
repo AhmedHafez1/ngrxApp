@@ -125,19 +125,8 @@
     </svg>
   </div>
 
-  <!-- Next Steps -->
-  <h2>Next Steps</h2>
-  <p>What do you want to do next with your app?</p>
-
-  <input type="hidden" #selection />
-
   <div class="card-container">
-    <button
-      class="card card-small"
-      (click)="selection.value = 'component'"
-      tabindex="0"
-      (click)="arabicMessage()"
-    >
+    <button class="card card-small" tabindex="0" (click)="arabicMessage()">
       <svg
         class="material-icons"
         xmlns="http://www.w3.org/2000/svg"
@@ -150,12 +139,7 @@
       <span>Arabic</span>
     </button>
 
-    <button
-      class="card card-small"
-      (click)="selection.value = 'build'"
-      tabindex="0"
-      (click)="spanishMessage()"
-    >
+    <button class="card card-small" tabindex="0" (click)="spanishMessage()">
       <svg
         class="material-icons"
         xmlns="http://www.w3.org/2000/svg"
@@ -168,12 +152,7 @@
       <span>Spanish</span>
     </button>
 
-    <button
-      class="card card-small"
-      (click)="selection.value = 'build'"
-      tabindex="0"
-      (click)="defaultEnglish()"
-    >
+    <button class="card card-small" tabindex="0" (click)="defaultEnglish()">
       <svg
         class="material-icons"
         xmlns="http://www.w3.org/2000/svg"
@@ -187,5 +166,68 @@
     </button>
   </div>
 
+  <div class="card highlight-card card-small" >
+    <div *ngIf="post$ | async as p">
+      <span>{{ p.message }}</span>
+      <span>{{ p.likes }}</span>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <button class="card card-small" tabindex="0" (click)="upVotePost()">
+      <svg
+        class="material-icons"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+      <span>Up Vote</span>
+    </button>
+
+    <button class="card card-small" tabindex="0" (click)="downVotePost()">
+      <svg
+        class="material-icons"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+      <span>Down Vote</span>
+    </button>
+
+    <button class="card card-small" tabindex="0" (click)="resetPost()">
+      <svg
+        class="material-icons"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+      <span>Reset</span>
+    </button>
+  </div>
+
+  <div class="card-container">
+    <input type="text" [(ngModel)]="text" style="height: 47px" />
+    <button class="card card-small" tabindex="0" (click)="editPostText()">
+      <svg
+        class="material-icons"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+      </svg>
+      <span>Edit</span>
+    </button>
+  </div>
   <router-outlet></router-outlet>
 </div>
