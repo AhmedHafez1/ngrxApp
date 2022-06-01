@@ -4,6 +4,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { simpleReducer } from './simple.reducer';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule
+    StoreModule.forRoot({message: simpleReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
